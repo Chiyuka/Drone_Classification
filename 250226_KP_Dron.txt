@@ -1,0 +1,118 @@
+SESSION NAME:	250226_KP_Dron
+SAMPLE RATE:	192000.000000
+BIT DEPTH:	24-bit
+SESSION START TIMECODE:	00:00:00:00
+TIMECODE FORMAT:	30 Frame
+# OF AUDIO TRACKS:	9
+# OF AUDIO CLIPS:	9
+# OF AUDIO FILES:	9
+
+
+M A R K E R S  L I S T I N G
+#   	LOCATION     	TIME REFERENCE    	UNITS    	NAME                             	COMMENTS
+1   	1:20         	15549426          	Samples  	Location 1                       	
+2   	3:05         	35568942          	Samples  	ascends2                        	
+3   	3:26         	39668929          	Samples  	1m flying 1perc                 	
+4   	4:31         	52105944          	Samples  	2m flying 1 perc                	
+5   	5:32         	63808453          	Samples  	3m flying 1 perc                	
+6   	6:32         	75283958          	Samples  	4m flying 1 perc                	
+7   	7:30         	86406270          	Samples  	turns left 4m                  	
+8   	8:34         	98755685          	Samples  	turns right 4m        	
+9   	10:52        	125278945         	Samples  	3m flying across    	
+10  	12:05        	139264000         	Samples  	2m                               	
+11  	13:10        	151748608         	Samples  	1m flying across       	
+12  	15:17        	176250849         	Samples  	forward                            	
+13  	15:30        	178719036         	Samples  	backward                            	
+14  	15:48        	182082866         	Samples  	forward                            	
+15  	15:58        	184044501         	Samples  	backward                            	
+16  	16:16        	187485645         	Samples  	forward 2m                         	
+17  	16:24        	188983205         	Samples  	backward 2m                         	
+18  	16:32        	190646048         	Samples  	forward 2m                         	
+19  	16:41        	192268040         	Samples  	backward 2m                         	
+20  	17:05        	196935680         	Samples  	forward 3m                         	
+21  	17:18        	199325958         	Samples  	backward 3m                         	
+22  	17:29        	201482470         	Samples  	forward 3m                         	
+23  	17:38        	203150440         	Samples  	backward 3m                         	
+24  	18:11        	209486548         	Samples  	forward 4m                         	
+25  	18:18        	210998203         	Samples  	backward 4m                         	
+26  	19:15        	221947003         	Samples  	left to right 2m                 	
+27  	19:23        	223377933         	Samples  	right to left 2m                 	
+28  	19:32        	225044509         	Samples  	left to right 2m                 	
+29  	19:38        	226319559         	Samples  	right to left 2m                 	
+30  	19:56        	229725191         	Samples  	diagonal                            	
+31  	20:04        	231342288         	Samples  	diagonal                         	
+32  	20:26        	235518621         	Samples  	lands                        	
+33  	24:51        	286413813         	Samples  	mavic2 starts                     	
+34  	25:14        	290863620         	Samples  	ascends 1m                      	
+35  	26:45        	308262007         	Samples  	2m flies                         	
+36  	27:38        	318439256         	Samples  	3m flies                         	
+37  	28:22        	326898048         	Samples  	4m flies                         	
+38  	29:10        	336089907         	Samples  	turns left 4m                   	
+39  	30:05        	346600364         	Samples  	turns left 4m                  	
+40  	31:11        	359380131         	Samples  	3m flies                       	
+41  	32:01        	368987210         	Samples  	2m flies                         	
+42  	32:53        	378965115         	Samples  	1m flies                         	
+43  	33:47        	389308918         	Samples  	1m forward                         	
+44  	34:01        	391979941         	Samples  	1m backwards                       	
+45  	34:15        	394602139         	Samples  	1m forward                     	
+46  	34:24        	396408268         	Samples  	1m backward                       	
+47  	34:36        	398759868         	Samples  	2m forward                      	
+48  	34:44        	400255642         	Samples  	2m backward                       	
+49  	34:51        	401610752         	Samples  	2m forward                      	
+50  	34:59        	403035601         	Samples  	2m backward
+51  	35:16        	406456209         	Samples  	3m forward                      	
+52  	35:22        	407564331         	Samples  	3m backward                       	
+53  	35:29        	408782205         	Samples  	3m forward                      	
+54  	35:34        	409845222         	Samples  	3m backward                       	
+55  	35:45        	411910895         	Samples  	4m forward                      	
+56  	35:52        	413350404         	Samples  	4m backward                       	
+57  	35:58        	414526973         	Samples  	4m forward                      	
+58  	36:04        	415548376         	Samples  	4m backward
+59  	36:42        	422945140         	Samples  	left to right 2m                 	
+60  	36:56        	425485749         	Samples  	right to left 2m                 	
+61  	37:05        	427235862         	Samples  	left to right 2m                 	
+62  	37:11        	428534871         	Samples  	right to left 2m                 	
+63  	37:23        	430775641         	Samples  	diagonal 2m                         	
+64  	37:30        	432108949         	Samples  	diagonal 2m                         	
+65  	37:37        	433457745         	Samples  	diagonal 2m                         	
+66  	37:43        	434579705         	Samples  	diagonal 2m                         	
+67  	37:56        	437070435         	Samples  	lands                          	
+68  	41:48        	481655434         	Samples  	ascends mini                    	
+69  	42:32        	490097360         	Samples  	1m flies                         	
+70  	43:10        	497358148         	Samples  	2m flies                         	
+71  	43:54        	505882798         	Samples  	3m flies                         	
+72  	44:36        	513893765         	Samples  	4m flies                         	
+73  	45:19        	522207533         	Samples  	turns left 4m                   	
+74  	46:00        	530058771         	Samples  	turns right 4m                  	
+75  	46:52        	539989611         	Samples  	3m flies                         	
+76  	47:25        	546379544         	Samples  	2m flies                         	
+77  	47:55        	552128473         	Samples  	1m flies                         	
+78  	48:29        	558601818         	Samples  	2m flies                         	
+79  	48:40        	560669027         	Samples  	2m forward                      	
+80  	48:51        	562776243         	Samples  	2m backward                       	
+81  	49:04        	565390842         	Samples  	2m forward                      	
+82  	49:20        	568334819         	Samples  	2m backward                       	
+83  	49:41        	572417720         	Samples  	3m forward                      	
+84  	49:52        	574597004         	Samples  	3m backward                       	
+85  	50:02        	576534838         	Samples  	3m forward                      	
+86  	50:15        	579067123         	Samples  	3m backward                       	
+87  	50:35        	582778063         	Samples  	4m forward                      	
+88  	50:48        	585376759         	Samples  	4m backward                       	
+89  	50:58        	587186173         	Samples  	4m forward                      	
+90  	51:08        	589198189         	Samples  	4m backwards                       	
+91  	51:46        	596354512         	Samples  	left to right 2m                 	
+92  	51:56        	598330149         	Samples  	right to left 2m                 	
+93  	52:05        	600188262         	Samples  	left to right 2m                 	
+94  	52:12        	601523660         	Samples  	right to left 2m                 	
+95  	52:23        	603492193         	Samples  	diagonal 2m                         	
+96  	52:33        	605384691         	Samples  	diagonal 2m                         	
+97  	52:44        	607665726         	Samples  	diagonal 2m                         	
+98  	52:55        	609680627         	Samples  	diagonal 2m                         	
+99  	53:10        	612648334         	Samples  	lands                          	
+100 	56:29        	650757930         	Samples  	mavic2 ascends                  	
+101 	57:10        	658642103         	Samples  	mini ascends                   	
+102 	57:31        	662639351         	Samples  	mavic ascends                   	
+103 	59:57        	690664428         	Samples  	mini lands                    	
+104 	60:18        	694686022         	Samples  	2 mavic forwards                    	
+105 	60:48        	700512090         	Samples  	mavic lands                   	
+106 	61:06        	703940386         	Samples  	mavic 2 lands                 	

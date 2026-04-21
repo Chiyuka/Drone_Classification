@@ -1,0 +1,5 @@
+.DS_Store
+drone_dataset_spectrograms/
+backup_old_spectrograms/
+best_drone_detector.pth
+Bruel 4006 - Bal elso_01.wav
