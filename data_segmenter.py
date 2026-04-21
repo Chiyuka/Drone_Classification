@@ -67,7 +67,7 @@ for i in range(num_segments):
         'start_ms': start_ms,
         'end_ms': end_ms,
         'duration_ms': SEGMENT_DURATION_MS,
-        'label_binary': is_drone_present, # Your first task label (0 or 1)
+        'label_binary': is_drone_present,
         'label_type': drone_type,         # Label for the classification task
     }
     dataset_metadata.append(segment_info)

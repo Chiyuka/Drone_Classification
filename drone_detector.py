@@ -21,9 +21,7 @@ PATIENCE = 5
 IMAGENET_MEAN = [0.485, 0.456, 0.406]
 IMAGENET_STD = [0.229, 0.224, 0.225]
 
-# -------------------------------------------------------------
-# Part A: Custom PyTorch Dataset (Loads the.pt files)
-# -------------------------------------------------------------
+# Custom PyTorch Dataset (Loads the.pt files)
 class DroneAcousticDataset(Dataset):
     def __init__(self, metadata_df, normalize=True):
         self.metadata = metadata_df
@@ -42,7 +40,7 @@ class DroneAcousticDataset(Dataset):
     def __getitem__(self, idx):
         row = self.metadata.iloc[idx]
         
-        # 1. Load the Spectrogram Tensor
+        # Load the Spectrogram Tensor
         feature_path = row['feature_path']
         if not os.path.exists(feature_path):
             raise FileNotFoundError(f"Feature file not found: {feature_path}")
@@ -53,12 +51,12 @@ class DroneAcousticDataset(Dataset):
             print(f"DEBUG - Raw spectrogram: shape={spectrogram.shape}, range=[{spectrogram.min():.3f}, {spectrogram.max():.3f}]")
             print(f"DEBUG - Raw mean={spectrogram.mean():.3f}, std={spectrogram.std():.3f}")
         
-        # 2. Handle different tensor dimensions
+        # Handle different tensor dimensions
         if spectrogram.dim() == 2:
             # 2D tensor: [n_mels, time] -> [1, n_mels, time]
             spectrogram = spectrogram.unsqueeze(0)
         
-        # 3. Apply normalization (more robust)
+        # Apply normalization (more robust)
         if self.normalize:
             # Simple min-max normalization to [0, 1]
             eps = 1e-8  # Small epsilon to avoid division by zero
@@ -108,9 +106,8 @@ class DroneAcousticDataset(Dataset):
         
         return spectrogram_3ch, label
 
-# -------------------------------------------------------------
-# Part B: Model Setup
-# -------------------------------------------------------------
+
+# Model Setup
 def setup_model(device, class_counts=None):
     # Create the model
     model = models.resnet18(weights=models.ResNet18_Weights.IMAGENET1K_V1)
@@ -152,9 +149,7 @@ def setup_model(device, class_counts=None):
     
     return model.to(device)
 
-# -------------------------------------------------------------
-# Part C: Training Function
-# -------------------------------------------------------------
+# Training Function
 def train_model(model, train_loader, val_loader, device, class_counts):
     # Calculate class weights
     num_classes = len(class_counts)
@@ -311,9 +306,7 @@ def train_model(model, train_loader, val_loader, device, class_counts):
     
     return model
 
-# -------------------------------------------------------------
-# Part D: Custom Collate Function (for variable time lengths)
-# -------------------------------------------------------------
+# Custom Collate Function (for variable time lengths)
 def custom_collate_fn(batch):
     if len(batch) == 0:
         return torch.Tensor(), torch.Tensor()
@@ -336,9 +329,8 @@ def custom_collate_fn(batch):
     
     return torch.stack(padded_spectrograms), torch.stack(labels)
 
-# -------------------------------------------------------------
+
 # Main Execution
-# -------------------------------------------------------------
 if __name__ == '__main__':
     # Set random seeds
     def set_seed(seed=42):

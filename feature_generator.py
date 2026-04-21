@@ -7,15 +7,14 @@ import math
 import shutil
 import numpy as np
 
-# ==============================================================================
-# --- CONFIGURATION ---
-# ==============================================================================
+
+# CONFIGURATION 
 
 AUDIO_FILE_PATH = 'Bruel 4006 - Bal elso_01.wav'
 METADATA_PATH = 'drone_dataset_spectrograms/master_drone_labels.csv' 
 SPECTROGRAM_OUTPUT_FOLDER = 'drone_dataset_spectrograms'
 
-# --- Spectrogram Parameters (Standard for CNN Audio Input) ---
+#Spectrogram Parameters (Standard for CNN Audio Input)
 SAMPLE_RATE = 44100  # Target Sample Rate (Hz)
 N_FFT = 512         # Window size for the Fourier Transform
 N_MELS = 128         # Number of Mel bands (Vertical resolution of the image)
@@ -27,9 +26,7 @@ mel_spectrogram_transform = torchaudio.transforms.MelSpectrogram(
     n_mels=N_MELS,
 )
 
-# ==============================================================================
 # --- LOAD DATA AND SETUP ENVIRONMENT ---
-# ==============================================================================
 try:
     df = pd.read_csv(METADATA_PATH)
     os.makedirs(SPECTROGRAM_OUTPUT_FOLDER, exist_ok=True)
@@ -45,9 +42,7 @@ except Exception as e:
     print(f"ERROR loading audio. Ensure FFmpeg is installed correctly. {e}")
     exit()
 
-# ==============================================================================
-# --- PROCESSING LOOP: SLICE -> EXTRACT -> TRANSFORM -> SAVE ---
-# ==============================================================================
+# PROCESSING LOOP: SLICE -> EXTRACT -> TRANSFORM -> SAVE 
 new_metadata = []
 
 for index, row in df.iterrows():
@@ -94,7 +89,7 @@ for index, row in df.iterrows():
     epsilon = 1e-8
     log_mel_spectrogram = torch.log(mel_spectrogram + epsilon)
     
-    # --- ADDED: LOCAL STANDARDIZATION FIX (Zero Mean, Unit Variance) ---
+    # --- LOCAL STANDARDIZATION FIX (Zero Mean, Unit Variance) ---
     # This solves the Dying ReLU problem by ensuring values are centered around zero.
     mean = log_mel_spectrogram.mean()
     std = log_mel_spectrogram.std()
@@ -105,7 +100,6 @@ for index, row in df.iterrows():
     
     # Final Spectrogram output (Zero Mean / Unit Variance)
     standardized_spec = (log_mel_spectrogram - mean) / std
-    # ------------------------------------------------------------------
     
     # 6. Save the Tensor and Update Metadata
     output_tensor_path = os.path.join(SPECTROGRAM_OUTPUT_FOLDER, f'seg_{segment_id}.pt')
@@ -113,23 +107,21 @@ for index, row in df.iterrows():
     # SAVE THE STANDARDIZED TENSOR
     torch.save(standardized_spec, output_tensor_path)
     
-    # --- INSERTED: Metadata Collection Fix ---
+    # --- Metadata Collection Fix ---
     # 1. Convert the Pandas Series (row) into a standard Python dictionary
     row_data = row.to_dict()
     # 2. Add the new feature path to the dictionary
     row_data['feature_path'] = output_tensor_path
     # 3. Append the clean dictionary to the metadata list
     new_metadata.append(row_data)
-    # ------------------------------------------
+
     
     # Progress indicator
     if (index + 1) % 1000 == 0:
         print(f"Processed {index + 1}/{len(df)} segments...")
 
-# ==============================================================================
-# --- FINAL CLEANUP AND OUTPUT ---
-# ==============================================================================
 
+# --- FINAL CLEANUP AND OUTPUT ---
 # Save the updated CSV with the path to the feature files
 df_final = pd.DataFrame(new_metadata)
 output_csv_path = os.path.join(SPECTROGRAM_OUTPUT_FOLDER, 'final_labeled_dataset.csv')
